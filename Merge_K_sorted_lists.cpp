@@ -1,6 +1,3 @@
-// Still in progress
-
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -11,79 +8,50 @@
  */
 class Solution {
 public:
+public:
     ListNode* mergeKLists(vector<ListNode*>& lists) 
     {
      int size = lists.size();
         ListNode *head = NULL;
+        vector<int> numbers;
         
         for(auto curList : lists)
         {
-            while(!curList)
+            while(curList != NULL)
             {
-                head = AddNodesSorted(curList->val,head);
+                numbers.push_back(curList->val);
                 curList = curList->next;
+            }
+        }
+        sort(numbers.begin(),numbers.end());
+        head = AddNumbers(numbers);
+        return head;
+    }
+    
+    ListNode* AddNumbers(vector<int> numbers)
+    {
+        if(numbers.size() == NULL)
+            return NULL;
+        
+        ListNode *head = NULL;
+        ListNode *tmp;
+        
+        for(auto it : numbers)
+        {
+            if(head == NULL)
+            {
+                head = new ListNode(it);
+                tmp = head;
+            }
+            
+            else
+            {
+                tmp->next = new ListNode(it);
+                tmp = tmp->next;
             }
         }
         
         return head;
     }
     
-    ListNode* AddNodesSorted(int val,ListNode *head)
-    {
-       if(head == NULL)
-       {
-           head = new ListNode(val);
-           cout<<"Head is NULL";
-           return head;
-       }
-        
-        ListNode *tmp = head;
-        
-        while(!tmp)
-        {
-            if(!tmp->next) 
-            {
-                if(val <= tmp->val)
-                {
-                    ListNode *someNode = new ListNode(val);
-                    someNode->next = tmp;
-                    head = tmp;
-                    return head;
-                }
-                
-                else
-                {
-                    ListNode *someNode = new ListNode(val);
-                    tmp->next = someNode;
-                    return head;
-                }
-            }
-            
-            else if(val <= tmp->val)
-            {
-                ListNode *someNode = new ListNode(val);
-                someNode->next = tmp;
-                head = tmp;
-                return head;
-            }
-            
-            else
-            {
-                if(val <= tmp->next->val)
-                {
-                    ListNode *someNode = new ListNode(val);
-                    someNode->next = tmp->next;
-                    tmp->next = someNode;
-                    return head;
-                }
-                
-                else
-                {
-                    tmp = tmp->next;
-                }
-            }             
-        }
-        
-        return head;
-    }
 };
