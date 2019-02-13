@@ -20,7 +20,7 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
 
 //This is a greedy approach for this problem which solves in O(n), where 'n' is number of towers to hop or size of array.
 //Note: We calculate the next optimal jump using "calNextPos". Then we goto that step and decide next optimal move.
-//Next optimal move is calculate based on which tower gives us maximum range. All the others will be ignored because the range they yield is
+//Next optimal move is calculated based on which tower gives us maximum range. All the others will be ignored because the range they yield is
 //already subset of our maximum range from the current position. 
 //Note: We might not make a max jump available from the optimal positon we get. It is where most people gets confused.
 
