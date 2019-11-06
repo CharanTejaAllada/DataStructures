@@ -58,10 +58,13 @@ public:
 };
 
 // Approach:
-//Imagine the given numbers as height of students standing a line and here each person is trying to figure //out how
-//many students infront of him are shorter than him.
-//Now in real world, if you take a student line which is unsorted like this and you started to sort it.
-//The sorting starts with very first kid in the line. In our case the first kid is in last element of vector 
-//because we are trying to determine the heights shorter towards left.
-//Now it is your turn to get into the sorted line because all the other people infront of you are in sorted //line.
-//Now you are getting pushed into the sorted line.... the position of you in the sorted line is same as the //number of people shorter than you in the line infront of you. Right? because the sorted line has only //people infront of you(in our case, towards right). Likewise we determine the number of shorter kids number //for every person.
+//Imagine the given numbers as height of kids standing a line and here each kid is trying to figure out how
+//many kids infront are shorter than him.
+//Now in real world, if you take a kids line which is unsorted like this and you started to sort it.
+//The sorting starts with very first kid in the line. In our case the first kid is the last element of vector 
+//because we are trying to determine the heights shorter towards right.
+//Now it is your turn to get into the sorted line because all the other kids infront of you are in sorted line.
+//Now you are getting pushed into the sorted line.... the position of you in the sorted line is same as the 
+//number of kids shorter infront of you. 
+//Right? because the sorted line has only people infront of you(in our case, towards right). 
+//Likewise we determine the number of shorter kids number for every kid.
